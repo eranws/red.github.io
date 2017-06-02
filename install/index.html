@@ -1,1 +1,44 @@
-echo test
+#!/bin/sh
+
+# This is the Red [language] install script
+#
+# Are you looking at this in your web browser, and would like to install Red?
+#
+# MAC AND LINUX:
+#   Just open up your terminal and type:
+#
+#     curl https://eranws.github.io/red.github.io/install/ | sh
+#
+#     # temporary url, if merged upstream it will be simpler: 
+#     # curl https://red.github.io/install/ | sh
+# 
+# inspired by Meteor https://install.meteor.com/index.html
+
+
+# lots of options on http://www.red-lang.org/p/download.html
+# possible: get latest tag from github, run build, get rebol, etc...
+
+# testing on mac for the meanwhile... Meteor has good boilerplate for os
+
+# latest raw binary
+wget http://static.red-lang.org/dl/auto/mac/red-latest
+chmod +x red-latest
+
+echo Download successful
+./red-latest
+
+print "Hello from Red Console!"
+quit
+
+echo Create example file
+echo Red [] \n print \"Hello World\" > hello-world.red
+
+echo Run as script
+./red-latest hello-world.red
+
+echo Compile to native
+./red-latest -c hello-world.red
+
+echo run "hello-world" executable
+./hello-world
+
