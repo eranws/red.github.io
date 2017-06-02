@@ -21,17 +21,19 @@
 # testing on mac for the meanwhile... Meteor has good boilerplate for os
 
 # latest raw binary
-wget http://static.red-lang.org/dl/auto/mac/red-latest
+ 
+curl http://static.red-lang.org/dl/auto/mac/red-latest --output red-latest
+    
 chmod +x red-latest
 
-echo Download successful
+echo Download successful.
 ./red-latest
 
 print "Hello from Red Console!"
 quit
 
 echo Create example file
-echo Red [] \n print \"Hello World\" > hello-world.red
+echo Red [] print \"Hello World\" > hello-world.red
 
 echo Run as script
 ./red-latest hello-world.red
